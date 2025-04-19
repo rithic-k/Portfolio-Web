@@ -22,6 +22,7 @@ export default function Home() {
   };
 
   const [projects, setProjects] = useState([]);
+const [certifications, setCertifications] = useState([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -76,11 +77,12 @@ export default function Home() {
 
     fetchProjects();
   }, []);
+  
 
   return (
     <div className="bg-portfolio-background text-portfolio-foreground min-h-screen flex flex-col">
       {/* Navbar */}
-      <nav className="bg-portfolio-background sticky top-0 z-50 border-b border-border/40">
+      <nav className="navbar-solid sticky top-0 z-50 border-b border-border/40">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex space-x-4">
             {sectionsData.map((section) => (
@@ -137,11 +139,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Certifications Section */}
+           {/* Certifications Section */}
         <section id="certifications" ref={sectionRefs.certifications} className="mb-16">
           <h2 className="text-3xl font-semibold mb-4 uppercase">Certifications</h2>
-          {/* Add certifications content here */}
-        </section>
+            </section>
 
         {/* Contact Section */}
         <section id="contact" ref={sectionRefs.contact} className="mb-16">
