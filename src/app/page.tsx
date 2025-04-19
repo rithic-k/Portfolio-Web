@@ -7,7 +7,6 @@ import { Mail, Code, GraduationCap, Lightbulb, User } from "lucide-react";
 
 const sectionsData = [
   { id: 'about', label: 'About', icon: User },
-  { id: 'skills', label: 'Skills', icon: Lightbulb },
   { id: 'projects', label: 'Projects', icon: Code },
   { id: 'certifications', label: 'Certifications', icon: GraduationCap },
   { id: 'contact', label: 'Contact', icon: Mail },
@@ -17,7 +16,6 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState<string>('about');
   const sectionRefs = {
     about: useRef<HTMLElement>(null),
-    skills: useRef<HTMLElement>(null),
     projects: useRef<HTMLElement>(null),
     certifications: useRef<HTMLElement>(null),
     contact: useRef<HTMLElement>(null),
@@ -95,22 +93,6 @@ export default function Home() {
           </p>
         </section>
 
-        {/* Skills Section */}
-        <section id="skills" ref={sectionRefs.skills} className="mb-16">
-          <h2 className="text-3xl font-semibold mb-4 uppercase">Skills</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Example Skill Cards - Replace with your actual skills */}
-            <div className="bg-card rounded-lg shadow-md p-4">
-              <h3 className="font-semibold text-xl">Web Development</h3>
-            </div>
-            <div className="bg-card rounded-lg shadow-md p-4">
-              <h3 className="font-semibold text-xl">UI/UX Design</h3>
-            </div>
-            <div className="bg-card rounded-lg shadow-md p-4">
-              <h3 className="font-semibold text-xl">Backend Development</h3>
-            </div>
-          </div>
-        </section>
 
         {/* Projects Section */}
         <section id="projects" ref={sectionRefs.projects} className="mb-16">
