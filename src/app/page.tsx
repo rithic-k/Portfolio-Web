@@ -4,7 +4,6 @@ import { useState, useRef, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Mail, Code, GraduationCap, User, Github } from "lucide-react";
-import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 
 const sectionsData = [
   { id: 'about', label: 'About', icon: User },
@@ -87,14 +86,11 @@ export default function Home() {
       <main className="flex-grow container mx-auto p-8">
         {/* About Section */}
         <section id="about" ref={sectionRefs.about} className="mb-16">
-         <div className="flex items-center mb-4">
-            <Avatar className="mr-4">
-              <AvatarImage src="https://github.com/rithic-k.png" alt="Rithic Krishna" />
-              <AvatarFallback>RK</AvatarFallback>
-            </Avatar>
-            <div>
-              <h2 className="text-3xl font-semibold mb-4 uppercase">About Me</h2>
+         <div className="flex flex-col items-center mb-4">
+            <div className="rounded-full h-32 w-32 bg-muted mb-4">
+              {/* Placeholder for Profile Picture */}
             </div>
+            <h2 className="text-3xl font-semibold mb-4 uppercase">About Me</h2>
           </div>
           <p className="text-lg">
             I am a passionate and driven individual with a strong foundation in computer science and a keen interest in cloud computing and AI. With experience in developing and deploying applications on various platforms, I am eager to contribute my skills to innovative projects.
