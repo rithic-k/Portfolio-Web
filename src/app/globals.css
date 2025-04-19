@@ -5,6 +5,7 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.125rem; /* Assuming base size is 1rem, increase by 2 steps */
+  background-color: #f5f5dc; /* Cream color */
 }
 
 @layer base {
@@ -103,14 +104,13 @@ html {
 
 /* Add more geometric patterns or customize the existing one as desired */
 .navbar-button {
-  font-weight: bold;
-  transition: color 0.3s ease; /* Transition only the color */
-  color: white;
+  color: #FFFFFF; /* White */
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 .navbar-button:hover {
-  background-color: transparent;
-  color: hsl(var(--portfolio-accent));
+  color: #A0E7E5; /* Soft Teal for hover */
+  background-color: rgba(255, 255, 255, 0.1); /* Slight shadow effect */
 }
 
 /* Style for when the button is active */
@@ -145,5 +145,25 @@ p, a, span, li {
   font-weight: bold;
 }
 
+/* Project Buttons */
+.project-button {
+  background-color: #A0E7E5; /* Soft Teal or Aqua */
+  transition: background-color 0.3s ease;
+}
+
+.project-button:hover {
+  background-color: #8fd1d1; /* Slightly darker shade for hover */
+}
+
+/* Header Buttons (Nav Bar) */
+.navbar-button {
+  color: #FFFFFF; /* White */
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar-button:hover {
+  color: #A0E7E5; /* Soft Teal for hover */
+  background-color: rgba(255, 255, 255, 0.1); /* Slight shadow effect */
+}
 
     
