@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Mail, Code, GraduationCap, User, Github } from "lucide-react";
+import { Mail, Code, GraduationCap, User, Github, Linkedin } from "lucide-react";
 
 const sectionsData = [
   { id: 'about', label: 'About', icon: User },
@@ -109,7 +109,11 @@ export default function Home() {
         <section id="about" ref={sectionRefs.about} className="mb-16">
          <div className="flex flex-col items-center mb-4">
             <div className="rounded-full h-32 w-32 bg-muted mb-4">
-              {/* Placeholder for Profile Picture */}
+              <img
+                src="https://avatars.githubusercontent.com/u/114114740?v=4"
+                alt="Rithic Krishna"
+                className="rounded-full h-full w-full object-cover"
+              />
             </div>
             <h2 className="text-3xl font-semibold mb-4 uppercase">About Me</h2>
           </div>
@@ -130,7 +134,6 @@ export default function Home() {
                     {project.name}
                   </a>
                 </h3>
-                <p>{project.description || 'No description provided.'}</p>
                 <p>
                   Language: {project.language || 'Not specified'}
                 </p>
@@ -139,9 +142,10 @@ export default function Home() {
           </div>
         </section>
 
-                 {/* Certifications Section */}
- <section id="certifications" ref={sectionRefs.certifications} className="mb-16">
+        {/* Certifications Section */}
+        <section id="certifications" ref={sectionRefs.certifications} className="mb-16">
           <h2 className="text-3xl font-semibold mb-4 uppercase">Certifications</h2>
+          {/* Certifications content will go here */}
         </section>
 
 
@@ -159,8 +163,9 @@ export default function Home() {
                     GitHub
                   </a>
                 </Button>
-                <Button variant="default" className="bg-black text-white" asChild>
+               <Button variant="default" className="bg-black text-white" asChild>
                   <a href="https://www.linkedin.com/in/rithic-krishna-928897315/" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                      <Linkedin className="mr-2" />
                     LinkedIn
                   </a>
                 </Button>
