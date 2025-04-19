@@ -1,4 +1,4 @@
-# **App Name**: GeometricFlow Portfolio
+# **App Name**: Portfolio
 
 ## Core Features:
 

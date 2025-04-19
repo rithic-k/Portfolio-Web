@@ -8,9 +8,15 @@ import { Mail, Code, GraduationCap, User, Github, Linkedin } from "lucide-react"
 const sectionsData = [
   { id: 'about', label: 'About', icon: User },
   { id: 'projects', label: 'Projects', icon: Code },
-  { id: 'certifications', label: 'Certifications', icon: GraduationCap },
   { id: 'contact', label: 'Contact', icon: Mail },
 ];
+
+// Define the Project interface
+interface Project {
+  id: number;
+  name: string;
+  html_url: string;
+}
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState<string>('about');
@@ -21,7 +27,8 @@ export default function Home() {
     contact: useRef<HTMLElement>(null),
   };
 
-  const [projects, setProjects] = useState([]);
+  // Use the Project interface to type the projects state
+  const [projects, setProjects] = useState<Project[]>([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -39,15 +46,17 @@ export default function Home() {
     );
 
     for (const key in sectionRefs) {
-      if (sectionRefs[key].current) {
-        observer.observe(sectionRefs[key].current);
+      const currentElement = sectionRefs[key as keyof typeof sectionRefs].current;
+      if (currentElement) {
+        observer.observe(currentElement);
       }
     }
 
     return () => {
       for (const key in sectionRefs) {
-        if (sectionRefs[key].current) {
-          observer.unobserve(sectionRefs[key].current);
+        const currentElement = sectionRefs[key as keyof typeof sectionRefs].current;
+        if (currentElement) {
+          observer.unobserve(currentElement);
         }
       }
     };
@@ -60,7 +69,7 @@ export default function Home() {
     });
   };
 
- useEffect(() => {
+  useEffect(() => {
     const fetchProjects = async () => {
       try {
         const response = await fetch('https://api.github.com/users/rithic-k/repos?sort=updated&per_page=100');
@@ -74,7 +83,12 @@ export default function Home() {
       }
     };
 
-    fetchProjects();
+    fetchProjects(); // initial fetch
+
+    // Poll every 5 minutes (300000 ms)
+    const interval = setInterval(fetchProjects, 300000);
+
+    return () => clearInterval(interval);
   }, []);
   
 
@@ -114,17 +128,17 @@ export default function Home() {
                 className="rounded-full h-full w-full object-cover"
               />
             </div>
-            <h2 className="text-3xl font-semibold mb-4 uppercase">About Me</h2>
+            <h2 className="text-3xl font-semibold mb-4 uppercase">ABOUT</h2>
           </div>
           <p className="text-lg">
-            I am a passionate and driven individual with a strong foundation in computer science and a keen interest in cloud computing and AI. With experience in developing and deploying applications on various platforms, I am eager to contribute my skills to innovative projects.
+            Currently pursuing my Bachelor's in Computer Science and Engineering at SRM Institute of Science and Technology, Kattankulathur, Chennai.
           </p>
         </section>
 
 
         {/* Projects Section */}
        <section id="projects" ref={sectionRefs.projects} className="mb-16">
-          <h2 className="text-3xl font-semibold mb-4 uppercase">Projects</h2>
+          <h2 className="text-3xl font-semibold mb-4 uppercase">PROJECTS</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
            {projects.map((project) => (
               <div key={project.id} className="bg-card rounded-lg shadow-md p-4">
@@ -133,25 +147,14 @@ export default function Home() {
                     {project.name}
                   </a>
                 </h3>
-                <p>
-                  Language: {project.language || 'Not specified'}
-                </p>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Certifications Section */}
-        <section id="certifications" ref={sectionRefs.certifications} className="mb-16">
-          <h2 className="text-3xl font-semibold mb-4 uppercase">Certifications</h2>
-         
-        </section>
-
-
         {/* Contact Section */}
         <section id="contact" ref={sectionRefs.contact} className="mb-16">
-          <h2 className="text-3xl font-semibold mb-4 uppercase">Contact Me</h2>
-          <p>Feel free to reach out to me via email or connect with me on social media.</p>
+          <h2 className="text-3xl font-semibold mb-4 uppercase">CONTACT</h2>
           <p>Email: rithickrishna.k@gmail.com</p>
           <p>Mobile: +919677255954</p>
           {/* Add social media links or a contact form here */}

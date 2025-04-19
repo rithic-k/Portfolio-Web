@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'GeometricFlow Portfolio',
+  title: 'Portfolio',
   description: 'A modern portfolio website with smooth scrolling and geometric design.',
 };
 

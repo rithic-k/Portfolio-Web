@@ -4,6 +4,7 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.125rem; /* Assuming base size is 1rem, increase by 2 steps */
 }
 
 @layer base {
@@ -120,6 +121,28 @@ html {
 
 .navbar-solid {
     background-color: black;
+}
+
+/* Increase all text sizes by 2 font sizes */
+h1 {
+  font-size: 2.25rem; /* Increase by 2 steps */
+}
+
+h2 {
+  font-size: 1.875rem; /* Increase by 2 steps */
+}
+
+h3 {
+  font-size: 1.5rem; /* Increase by 2 steps */
+}
+
+p, a, span, li {
+  font-size: 1.125rem; /* Increase by 2 steps */
+}
+
+/* Make email and mobile number bolder */
+.email, .mobile {
+  font-weight: bold;
 }
 
 
