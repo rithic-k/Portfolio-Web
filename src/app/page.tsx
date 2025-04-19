@@ -128,8 +128,10 @@ export default function Home() {
                 className="rounded-full h-full w-full object-cover"
               />
             </div>
-            <h2 className="text-3xl font-semibold mb-4 uppercase">ABOUT</h2>
+            <h2 className="text-3xl font-semibold mb-4 uppercase">ABOUT
+            </h2>
           </div>
+            <h2 className="text-3xl font-semibold mb-4 uppercase"> Rithic Krishna </h2>
           <p className="text-lg">
             Currently pursuing my Bachelor's in Computer Science and Engineering at SRM Institute of Science and Technology, Kattankulathur, Chennai.
           </p>
