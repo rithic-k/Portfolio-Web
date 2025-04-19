@@ -65,7 +65,6 @@ export default function Home() {
       {/* Navbar */}
       <nav className="bg-portfolio-background border-b border-border/40 sticky top-0 z-50">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-          <span className="font-bold text-xl">GeometricFlow</span>
           <div className="space-x-4">
             {sectionsData.map((section) => (
               <Button
