@@ -65,7 +65,7 @@ export default function Home() {
       {/* Navbar */}
       <nav className="bg-portfolio-background sticky top-0 z-50">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-          <div className="flex space-x-4 overflow-x-auto">
+          <div className="flex space-x-4">
             {sectionsData.map((section) => (
               <Button
                 key={section.id}
@@ -88,7 +88,7 @@ export default function Home() {
       <main className="flex-grow container mx-auto p-8">
         {/* About Section */}
         <section id="about" ref={sectionRefs.about} className="mb-16">
-          <h2 className="text-3xl font-semibold mb-4">About Me</h2>
+          <h2 className="text-3xl font-semibold mb-4 uppercase">About Me</h2>
           <p className="text-lg">
             A brief introduction about yourself goes here. Highlight your
             passion, experience, and what you bring to the table.
@@ -97,27 +97,24 @@ export default function Home() {
 
         {/* Skills Section */}
         <section id="skills" ref={sectionRefs.skills} className="mb-16">
-          <h2 className="text-3xl font-semibold mb-4">Skills</h2>
+          <h2 className="text-3xl font-semibold mb-4 uppercase">Skills</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Example Skill Cards - Replace with your actual skills */}
             <div className="bg-card rounded-lg shadow-md p-4">
               <h3 className="font-semibold text-xl">Web Development</h3>
-              <p>Proficient in HTML, CSS, JavaScript, and frameworks like React and Next.js.</p>
             </div>
             <div className="bg-card rounded-lg shadow-md p-4">
               <h3 className="font-semibold text-xl">UI/UX Design</h3>
-              <p>Experience in creating intuitive and visually appealing user interfaces.</p>
             </div>
             <div className="bg-card rounded-lg shadow-md p-4">
               <h3 className="font-semibold text-xl">Backend Development</h3>
-              <p>Knowledge of Node.js, Express, and databases like MongoDB and PostgreSQL.</p>
             </div>
           </div>
         </section>
 
         {/* Projects Section */}
         <section id="projects" ref={sectionRefs.projects} className="mb-16">
-          <h2 className="text-3xl font-semibold mb-4">Projects</h2>
+          <h2 className="text-3xl font-semibold mb-4 uppercase">Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Example Project Cards - Replace with your actual projects */}
             <div className="bg-card rounded-lg shadow-md p-4">
@@ -133,7 +130,7 @@ export default function Home() {
 
         {/* Certifications Section */}
         <section id="certifications" ref={sectionRefs.certifications} className="mb-16">
-          <h2 className="text-3xl font-semibold mb-4">Certifications</h2>
+          <h2 className="text-3xl font-semibold mb-4 uppercase">Certifications</h2>
           <ul className="list-disc list-inside">
             {/* Example Certifications - Replace with your actual certifications */}
             <li>Certification 1 - Issuing Authority</li>
@@ -143,7 +140,7 @@ export default function Home() {
 
         {/* Contact Section */}
         <section id="contact" ref={sectionRefs.contact} className="mb-16">
-          <h2 className="text-3xl font-semibold mb-4">Contact Me</h2>
+          <h2 className="text-3xl font-semibold mb-4 uppercase">Contact Me</h2>
           <p>Feel free to reach out to me via email or connect with me on social media.</p>
           <p>Email: your.email@example.com</p>
           {/* Add social media links or a contact form here */}
