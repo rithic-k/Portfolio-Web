@@ -140,9 +140,9 @@ const [certifications, setCertifications] = useState([]);
         </section>
 
            {/* Certifications Section */}
-        <section id="certifications" ref={sectionRefs.certifications} className="mb-16">
+ <section id="certifications" ref={sectionRefs.certifications} className="mb-16">
           <h2 className="text-3xl font-semibold mb-4 uppercase">Certifications</h2>
-            </section>
+        </section>
 
         {/* Contact Section */}
         <section id="contact" ref={sectionRefs.contact} className="mb-16">
