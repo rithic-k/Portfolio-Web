@@ -124,7 +124,8 @@ export default function Home() {
         <section id="contact" ref={sectionRefs.contact} className="mb-16">
           <h2 className="text-3xl font-semibold mb-4 uppercase">Contact Me</h2>
           <p>Feel free to reach out to me via email or connect with me on social media.</p>
-          <p>Email: your.email@example.com</p>
+          <p>Email: rithickrishna.k@gmail.com</p>
+          <p>Mobile: +919677255954</p>
           {/* Add social media links or a contact form here */}
              <Button variant="ghost" className="navbar-button" asChild>
               <a href="https://github.com/rithic-k" target="_blank" rel="noopener noreferrer" className="flex items-center">
