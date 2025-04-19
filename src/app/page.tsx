@@ -132,6 +132,11 @@ export default function Home() {
                 GitHub
               </a>
             </Button>
+                         <Button variant="ghost" className="navbar-button" asChild>
+              <a href="https://www.linkedin.com/in/rithic-krishna-928897315/" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                LinkedIn
+              </a>
+            </Button>
         </section>
       </main>
 
