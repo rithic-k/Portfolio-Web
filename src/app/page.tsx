@@ -21,6 +21,8 @@ export default function Home() {
     contact: useRef<HTMLElement>(null),
   };
 
+  const [projects, setProjects] = useState([]);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -57,6 +59,23 @@ export default function Home() {
       block: 'start',
     });
   };
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch('https://api.github.com/users/rithic-k/repos?sort=updated&per_page=100');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setProjects(data);
+      } catch (error) {
+        console.error("Could not fetch projects:", error);
+      }
+    };
+
+    fetchProjects();
+  }, []);
 
   return (
     <div className="bg-portfolio-background text-portfolio-foreground min-h-screen flex flex-col">
@@ -99,20 +118,25 @@ export default function Home() {
 
 
         {/* Projects Section */}
-        <section id="projects" ref={sectionRefs.projects} className="mb-16">
+       <section id="projects" ref={sectionRefs.projects} className="mb-16">
           <h2 className="text-3xl font-semibold mb-4 uppercase">Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Example Project Cards - Replace with your actual projects */}
-            <div className="bg-card rounded-lg shadow-md p-4">
-              <h3 className="font-semibold text-xl">Project 1</h3>
-              <p>A brief description of the project and your role in it.</p>
-            </div>
-            <div className="bg-card rounded-lg shadow-md p-4">
-              <h3 className="font-semibold text-xl">Project 2</h3>
-              <p>A brief description of the project and your role in it.</p>
-            </div>
+            {projects.map((project) => (
+              <div key={project.id} className="bg-card rounded-lg shadow-md p-4">
+                <h3 className="font-semibold text-xl">
+                  <a href={project.html_url} target="_blank" rel="noopener noreferrer">
+                    {project.name}
+                  </a>
+                </h3>
+                <p>{project.description || 'No description provided.'}</p>
+                <p>
+                  Language: {project.language || 'Not specified'}
+                </p>
+              </div>
+            ))}
           </div>
         </section>
+
 
         {/* Certifications Section */}
         <section id="certifications" ref={sectionRefs.certifications} className="mb-16">
