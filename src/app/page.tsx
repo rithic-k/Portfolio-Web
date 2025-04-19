@@ -22,7 +22,7 @@ export default function Home() {
   };
 
   const [projects, setProjects] = useState([]);
-const [certifications, setCertifications] = useState([]);
+  const [certifications, setCertifications] = useState([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -151,13 +151,13 @@ const [certifications, setCertifications] = useState([]);
           <p>Email: rithickrishna.k@gmail.com</p>
           <p>Mobile: +919677255954</p>
           {/* Add social media links or a contact form here */}
-             <Button variant="ghost" className="navbar-button" asChild>
+             <Button variant="default" className="bg-black text-white" asChild>
               <a href="https://github.com/rithic-k" target="_blank" rel="noopener noreferrer" className="flex items-center">
                 <Github className="mr-2" />
                 GitHub
               </a>
             </Button>
-                         <Button variant="ghost" className="navbar-button" asChild>
+                         <Button variant="default" className="bg-black text-white" asChild>
               <a href="https://www.linkedin.com/in/rithic-krishna-928897315/" target="_blank" rel="noopener noreferrer" className="flex items-center">
                 LinkedIn
               </a>
