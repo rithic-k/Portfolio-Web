@@ -109,7 +109,7 @@ html {
   height: 100%;
   z-index: -1;
   opacity: 0.3; /* Adjust opacity as needed */
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Circle cx='30' cy='30' r='29' fill='rgba(224,224,224,0.04)' stroke='%23E0E0E0' stroke-width='2' stroke-dasharray='4 4'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='42' height='48' viewBox='0 0 42 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H12V16H0V0Z' fill='rgba(224,224,224,0.04)'/%3E%3Cpath d='M0 32H12V48H0V32Z' fill='rgba(224,224,224,0.04)'/%3E%3Cpath d='M30 0H42V16H30V0Z' fill='rgba(224,224,224,0.04)'/%3E%3Cpath d='M30 32H42V48H30V32Z' fill='rgba(224,224,224,0.04)'/%3E%3Cpath d='M15 16H27V32H15V16Z' fill='rgba(224,224,224,0.04)'/%3E%3C/svg%3E%0A");
 }
 
 /* Add more geometric patterns or customize the existing one as desired */
@@ -129,4 +129,5 @@ html {
   background-color: white; /* Solid white background */
   color: hsl(var(--portfolio-accent));
 }
+
 
