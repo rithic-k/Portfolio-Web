@@ -1,19 +1,18 @@
 'use client';
 
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 
-interface Line {
+interface Point {
   x: number;
   y: number;
-  dx: number;
-  dy: number;
-  length: number;
+  baseX: number;
+  baseY: number;
+  density: number;
   angle: number;
 }
 
-const CanvasBackground: React.FC = () => {
+const CanvasBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [lines, setLines] = useState<Line[]>([]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -23,6 +22,8 @@ const CanvasBackground: React.FC = () => {
     if (!ctx) return;
 
     let animationFrameId: number;
+    let points: Point[] = [];
+    const density = 20;
 
     // Initialize canvas size
     const setCanvasSize = () => {
@@ -33,58 +34,68 @@ const CanvasBackground: React.FC = () => {
     setCanvasSize();
     window.addEventListener('resize', setCanvasSize);
 
-    // Function to generate a random number within a range
-    const random = (min: number, max: number): number => Math.random() * (max - min) + min;
-
-    // Function to create initial lines
-    const createLines = () => {
-      const newLines: Line[] = [];
-      for (let i = 0; i < 50; i++) {
-        const x = random(0, canvas.width);
-        const y = random(0, canvas.height);
-        const dx = random(-0.5, 0.5);
-        const dy = random(-0.5, 0.5);
-        const length = random(20, 50);
-        const angle = random(0, 2 * Math.PI);
-        newLines.push({ x, y, dx, dy, length, angle });
+    // Create points
+    const createPoints = () => {
+      points = [];
+      for (let x = 0; x < canvas.width + density; x += density) {
+        for (let y = 0; y < canvas.height + density; y += density) {
+          const angle = Math.random() * Math.PI * 2;
+          points.push({
+            x: x + (Math.random() * density * 0.5),
+            y: y + (Math.random() * density * 0.5),
+            baseX: x,
+            baseY: y,
+            density: Math.random() * 30 + 40,
+            angle,
+          });
+        }
       }
-      setLines(newLines);
     };
 
-    createLines();
+    createPoints();
+
+    // Draw the lines
+    const drawLines = () => {
+      if (!ctx) return;
+
+      for (let i = 0; i < points.length; i++) {
+        const point = points[i];
+
+        // Calculate the distance to other points and draw lines
+        for (let j = i + 1; j < points.length; j++) {
+          const otherPoint = points[j];
+
+          const dx = point.x - otherPoint.x;
+          const dy = point.y - otherPoint.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 80) {
+            ctx.beginPath();
+            ctx.moveTo(point.x, point.y);
+            ctx.lineTo(otherPoint.x, otherPoint.y);
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      }
+    };
 
     // Animation function
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      setLines(prevLines => {
-        return prevLines.map(line => {
-          let { x, y, dx, dy, length, angle } = line;
+      // Move points
+      for (let i = 0; i < points.length; i++) {
+        const point = points[i];
+        const angleChange = 0.02; // Reduced angle change
+        point.angle += (Math.random() - 0.5) * angleChange;
 
-          // Update position
-          x += dx;
-          y += dy;
+        point.x = point.baseX + Math.cos(point.angle) * point.density;
+        point.y = point.baseY + Math.sin(point.angle) * point.density;
+      }
 
-          // Bounce off edges
-          if (x < 0 || x > canvas.width) dx *= -1;
-          if (y < 0 || y > canvas.height) dy *= -1;
-
-           // Slightly change direction randomly
-           if (Math.random() < 0.01) {
-            angle += random(-0.1, 0.1);
-          }
-
-          // Draw line
-          ctx.beginPath();
-          ctx.moveTo(x, y);
-          ctx.lineTo(x + length * Math.cos(angle), y + length * Math.sin(angle));
-          ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
-          ctx.lineWidth = 2;
-          ctx.stroke();
-
-          return { ...line, x, y, dx, dy, angle };
-        });
-      });
+      drawLines();
       animationFrameId = requestAnimationFrame(animate);
     };
 
@@ -105,9 +116,13 @@ const CanvasBackground: React.FC = () => {
         top: 0,
         left: 0,
         zIndex: -1,
+        width: '100%',
+        height: '100%',
       }}
     />
   );
 };
 
 export default CanvasBackground;
+
+    
