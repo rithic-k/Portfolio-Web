@@ -139,10 +139,11 @@ export default function Home() {
           </div>
         </section>
 
-           {/* Certifications Section */}
+                 {/* Certifications Section */}
  <section id="certifications" ref={sectionRefs.certifications} className="mb-16">
           <h2 className="text-3xl font-semibold mb-4 uppercase">Certifications</h2>
         </section>
+
 
         {/* Contact Section */}
         <section id="contact" ref={sectionRefs.contact} className="mb-16">
@@ -151,17 +152,19 @@ export default function Home() {
           <p>Email: rithickrishna.k@gmail.com</p>
           <p>Mobile: +919677255954</p>
           {/* Add social media links or a contact form here */}
-             <Button variant="default" className="bg-black text-white" asChild>
-              <a href="https://github.com/rithic-k" target="_blank" rel="noopener noreferrer" className="flex items-center">
-                <Github className="mr-2" />
-                GitHub
-              </a>
-            </Button>
-                         <Button variant="default" className="bg-black text-white" asChild>
-              <a href="https://www.linkedin.com/in/rithic-krishna-928897315/" target="_blank" rel="noopener noreferrer" className="flex items-center">
-                LinkedIn
-              </a>
-            </Button>
+             <div className="flex flex-col gap-2">
+                <Button variant="default" className="bg-black text-white" asChild>
+                  <a href="https://github.com/rithic-k" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                    <Github className="mr-2" />
+                    GitHub
+                  </a>
+                </Button>
+                <Button variant="default" className="bg-black text-white" asChild>
+                  <a href="https://www.linkedin.com/in/rithic-krishna-928897315/" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                    LinkedIn
+                  </a>
+                </Button>
+              </div>
         </section>
       </main>
 
