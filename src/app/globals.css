@@ -115,21 +115,22 @@ html {
 /* Add more geometric patterns or customize the existing one as desired */
 .navbar-button {
   font-weight: bold;
-  transition: background-color 0.3s ease;
-  color: hsl(var(--portfolio-accent));
+  transition: color 0.3s ease; /* Transition only the color */
+  color: white;
 }
 
 .navbar-button:hover {
-  background-color: white;
+  background-color: transparent;
   color: hsl(var(--portfolio-accent));
 }
 
 /* Style for when the button is active */
 .navbar-button.active {
-  background-color: white; /* Solid white background */
-  color: hsl(var(--portfolio-accent));
+  color: black; /* Solid white background */
+  background-color: transparent;
 }
 
 .navbar-solid {
-    background-color: #000000;
+    background-color: black;
 }
+
