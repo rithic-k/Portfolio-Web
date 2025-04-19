@@ -77,6 +77,24 @@ export default function Home() {
     fetchProjects();
   }, []);
 
+    const certificationsData = [
+    {
+      name: "AWS Certified Cloud Practitioner",
+      issuingOrganization: "Amazon Web Services (AWS)",
+      issueDate: "Issued Jul 2023",
+    },
+    {
+      name: "Microsoft Certified: Azure Fundamentals",
+      issuingOrganization: "Microsoft",
+      issueDate: "Issued Nov 2023",
+    },
+    {
+      name: "Google Cloud Certified - Cloud Digital Leader",
+      issuingOrganization: "Google Cloud",
+      issueDate: "Issued May 2024",
+    },
+  ];
+
   return (
     <div className="bg-portfolio-background text-portfolio-foreground min-h-screen flex flex-col">
       {/* Navbar */}
@@ -141,11 +159,13 @@ export default function Home() {
         {/* Certifications Section */}
         <section id="certifications" ref={sectionRefs.certifications} className="mb-16">
           <h2 className="text-3xl font-semibold mb-4 uppercase">Certifications</h2>
-          <ul className="list-disc list-inside">
-            {/* Example Certifications - Replace with your actual certifications */}
-            <li>Certification 1 - Issuing Authority</li>
-            <li>Certification 2 - Issuing Authority</li>
-          </ul>
+             <ul className="list-disc list-inside">
+          {certificationsData.map((cert, index) => (
+            <li key={index}>
+              {cert.name} - {cert.issuingOrganization} ({cert.issueDate})
+            </li>
+          ))}
+        </ul>
         </section>
 
         {/* Contact Section */}
