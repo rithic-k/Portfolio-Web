@@ -8,6 +8,7 @@ import { Mail, Code, GraduationCap, User, Github } from "lucide-react";
 const sectionsData = [
   { id: 'about', label: 'About', icon: User },
   { id: 'projects', label: 'Projects', icon: Code },
+  { id: 'certifications', label: 'Certifications', icon: GraduationCap },
   { id: 'contact', label: 'Contact', icon: Mail },
 ];
 
@@ -16,6 +17,7 @@ export default function Home() {
   const sectionRefs = {
     about: useRef<HTMLElement>(null),
     projects: useRef<HTMLElement>(null),
+    certifications: useRef<HTMLElement>(null),
     contact: useRef<HTMLElement>(null),
   };
 
@@ -133,6 +135,12 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </section>
+
+        {/* Certifications Section */}
+        <section id="certifications" ref={sectionRefs.certifications} className="mb-16">
+          <h2 className="text-3xl font-semibold mb-4 uppercase">Certifications</h2>
+          {/* Add certifications content here */}
         </section>
 
         {/* Contact Section */}
