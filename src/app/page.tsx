@@ -63,7 +63,7 @@ export default function Home() {
   return (
     <div className="bg-portfolio-background text-portfolio-foreground min-h-screen flex flex-col">
       {/* Navbar */}
-      <nav className="bg-portfolio-background border-b border-border/40 sticky top-0 z-50">
+      <nav className="bg-portfolio-background sticky top-0 z-50">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
           <div className="space-x-4">
             {sectionsData.map((section) => (
@@ -71,7 +71,7 @@ export default function Home() {
                 key={section.id}
                 variant="ghost"
                 className={cn(
-                  'navbar-button',
+                  'navbar-button text-lg px-6 py-3 font-bold uppercase',
                   activeSection === section.id ? 'active' : '',
                   'text-portfolio-foreground hover:text-portfolio-accent transition-colors duration-200'
                 )}
