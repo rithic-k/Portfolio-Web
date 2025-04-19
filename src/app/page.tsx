@@ -22,7 +22,6 @@ export default function Home() {
   };
 
   const [projects, setProjects] = useState([]);
-  const [certifications, setCertifications] = useState([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -61,7 +60,7 @@ export default function Home() {
     });
   };
 
-  useEffect(() => {
+ useEffect(() => {
     const fetchProjects = async () => {
       try {
         const response = await fetch('https://api.github.com/users/rithic-k/repos?sort=updated&per_page=100');
@@ -83,7 +82,7 @@ export default function Home() {
     <div className="bg-portfolio-background text-portfolio-foreground min-h-screen flex flex-col">
       {/* Navbar */}
       <nav className="navbar-solid sticky top-0 z-50 border-b border-border/40">
-        <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+        <div className="container mx-auto px-4 py-3 flex items-center justify-center">
           <div className="flex space-x-4">
             {sectionsData.map((section) => (
               <Button
@@ -127,7 +126,7 @@ export default function Home() {
        <section id="projects" ref={sectionRefs.projects} className="mb-16">
           <h2 className="text-3xl font-semibold mb-4 uppercase">Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {projects.map((project) => (
+           {projects.map((project) => (
               <div key={project.id} className="bg-card rounded-lg shadow-md p-4">
                 <h3 className="font-semibold text-xl">
                   <a href={project.html_url} target="_blank" rel="noopener noreferrer">
@@ -145,7 +144,7 @@ export default function Home() {
         {/* Certifications Section */}
         <section id="certifications" ref={sectionRefs.certifications} className="mb-16">
           <h2 className="text-3xl font-semibold mb-4 uppercase">Certifications</h2>
-          {/* Certifications content will go here */}
+         
         </section>
 
 
@@ -180,3 +179,4 @@ export default function Home() {
     </div>
   );
 }
+
