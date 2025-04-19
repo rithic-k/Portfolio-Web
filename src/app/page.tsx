@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Mail, Code, GraduationCap, Lightbulb, User } from "lucide-react";
+import { Mail, Code, GraduationCap, User, Github } from "lucide-react";
 
 const sectionsData = [
   { id: 'about', label: 'About', icon: User },
@@ -126,6 +126,12 @@ export default function Home() {
           <p>Feel free to reach out to me via email or connect with me on social media.</p>
           <p>Email: your.email@example.com</p>
           {/* Add social media links or a contact form here */}
+             <Button variant="ghost" className="navbar-button" asChild>
+              <a href="https://github.com/rithic-k" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                <Github className="mr-2" />
+                GitHub
+              </a>
+            </Button>
         </section>
       </main>
 
