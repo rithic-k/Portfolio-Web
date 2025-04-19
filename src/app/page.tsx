@@ -65,13 +65,13 @@ export default function Home() {
       {/* Navbar */}
       <nav className="bg-portfolio-background sticky top-0 z-50">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-          <div className="space-x-4">
+          <div className="flex space-x-4 overflow-x-auto">
             {sectionsData.map((section) => (
               <Button
                 key={section.id}
                 variant="ghost"
                 className={cn(
-                  'navbar-button text-lg px-6 py-3 font-bold uppercase',
+                  'navbar-button text-lg px-6 py-4 font-extrabold uppercase whitespace-nowrap',
                   activeSection === section.id ? 'active' : '',
                   'text-portfolio-foreground hover:text-portfolio-accent transition-colors duration-200'
                 )}
