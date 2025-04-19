@@ -71,8 +71,9 @@ export default function Home() {
                 key={section.id}
                 variant="ghost"
                 className={cn(
-                  activeSection === section.id ? 'text-portfolio-accent' : 'text-portfolio-foreground',
-                  'hover:text-portfolio-accent transition-colors duration-200'
+                  'navbar-button',
+                  activeSection === section.id ? 'active' : '',
+                  'text-portfolio-foreground hover:text-portfolio-accent transition-colors duration-200'
                 )}
                 onClick={() => scrollToSection(section.id)}
               >
@@ -151,7 +152,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-portfolio-background border-t border-border/40 p-4 text-center">
-        © {new Date().getFullYear()} GeometricFlow Portfolio
+        © {new Date().getFullYear()}
       </footer>
     </div>
   );
