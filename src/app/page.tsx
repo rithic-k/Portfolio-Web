@@ -81,17 +81,34 @@ export default function Home() {
     {
       name: "AWS Certified Cloud Practitioner",
       issuingOrganization: "Amazon Web Services (AWS)",
-      issueDate: "Issued Jul 2023",
     },
     {
       name: "Microsoft Certified: Azure Fundamentals",
       issuingOrganization: "Microsoft",
-      issueDate: "Issued Nov 2023",
     },
     {
       name: "Google Cloud Certified - Cloud Digital Leader",
       issuingOrganization: "Google Cloud",
-      issueDate: "Issued May 2024",
+    },
+        {
+      name: "Architecting with Google Compute Engine",
+      issuingOrganization: "Coursera",
+    },
+        {
+      name: "Networking in Google Cloud Specialization",
+      issuingOrganization: "Coursera",
+    },
+            {
+      name: "Security in Google Cloud Specialization",
+      issuingOrganization: "Coursera",
+    },
+    {
+      name: "Data Engineering on Google Cloud Platform Specialization",
+      issuingOrganization: "Coursera",
+    },
+    {
+      name: "Preparing for Google Cloud Certification: Cloud Architect Professional Certificate",
+      issuingOrganization: "Coursera",
     },
   ];
 
@@ -162,7 +179,7 @@ export default function Home() {
              <ul className="list-disc list-inside">
           {certificationsData.map((cert, index) => (
             <li key={index}>
-              {cert.name} - {cert.issuingOrganization} ({cert.issueDate})
+              {cert.name} - {cert.issuingOrganization}
             </li>
           ))}
         </ul>
