@@ -126,11 +126,12 @@ html {
 
 /* Style for when the button is active */
 .navbar-button.active {
-  color: black; /* Solid white background */
+  color: white; /* Solid white background */
   background-color: transparent;
 }
 
 .navbar-solid {
     background-color: black;
 }
+
 
