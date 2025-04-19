@@ -113,11 +113,6 @@ export default function Home() {
       issuingOrganization: "Coursera",
       credentialUrl: "https://www.coursera.org/account/accomplishments/specialization/certificate/5QKF4FTCZ7HA"
     },
-    {
-      name: "Preparing for Google Cloud Certification: Cloud Architect Professional Certificate",
-      issuingOrganization: "Coursera",
-      credentialUrl: "https://www.coursera.org/account/accomplishments/certificate/QWERTYUIOP"
-    },
         {
       name: "Google Cloud Fundamentals: Core Infrastructure",
       issuingOrganization: "Coursera",
